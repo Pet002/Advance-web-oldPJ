@@ -1,0 +1,191 @@
+<div class="card" style="background-color: #FFEFE2;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                
+            </div>
+            <div class="col-md-6 text-center">
+                <h4>แก้ไขข้อมูล สมาชิกชมรมคอมพิวเตอร์</h4>
+            </div>
+
+        </div><br>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <form [formGroup]="memberForm">
+                    <div class="card">
+                        <div class="card-header">
+                            รายละเอียด 
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    คำนำหน้า :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="title" [(ngModel)] = "oneMember.title">
+                                            <option value=""></option>
+                                            <option *ngFor="let item of titleList" [value]="item"  [selected]="oneMember.title == item">{{item}}</option>
+                                        </select>
+                                        <div *ngIf="a.title.invalid && (a.title.dirty || a.title.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.title.errors?.required">
+                                                กรุณาเลือกคำนำหน้า
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    ชื่อ :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" name = "firstname"  class="form-control" formControlName='firstname' [(ngModel)] = "oneMember.firstname">
+                                        <div *ngIf="a.firstname.invalid && (a.firstname.dirty || a.firstname.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.firstname.errors?.required">
+                                                กรุณากรอกชื่อ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    นามสกุล :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName='lastname' [(ngModel)] = "oneMember.lastname">
+                                        <div *ngIf="a.lastname.invalid && (a.lastname.dirty || a.lastname.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.lastname.errors?.required">
+                                                กรุณากรอกนามสกุล
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    รหัสนักศึกษา :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName='sid' [(ngModel)] = "oneMember.sid">
+                                        <div *ngIf="a.sid.invalid && (a.sid.dirty || a.sid.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.sid.errors?.required">
+                                                กรุณากรอกรหัสนักศึกษา
+                                            </div>
+                                            <div *ngIf="a.sid.errors?.pattern">
+                                                รหัสนักศึกษาของคุณไม่ถูกต้อง กรุณากรอกใหม่อีกครั้ง "BXXXXXXX"
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    สาขา :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <select class="form-control" formControlName="major" [(ngModel)] = "oneMember.major">
+                                            <option value=""></option>
+                                            <option *ngFor="let item of majorList" [value]="item" [selected] = "oneMember.major == item">{{item}}</option>
+                                        </select>
+                                        <div *ngIf="a.major.invalid && (a.major.dirty || a.major.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.major.errors?.required">
+                                                กรุณาเลือกสาขา
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Facebook :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName='facebook' [(ngModel)] = "oneMember.facebook">
+                                        <div *ngIf="a.facebook.invalid && (a.facebook.dirty || a.facebook.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.facebook.errors?.required">
+                                                กรุณากรอกข้อมูลเพื่อใช้ในติดต่อ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    เบอร์โทรศัพท์ :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName='tell' [(ngModel)] = "oneMember.tell">
+                                        <div *ngIf="a.tell.invalid && (a.tell.dirty || a.tell.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.tell.errors?.required">
+                                                กรุณากรอกเบอร์โทรศัพท์
+                                            </div>
+                                            <div *ngIf="a.tell.errors?.pattern">
+                                                เบอร์โทรศัพท์ของคุณไม่ถูกต้อง
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    รูป:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" formControlName='file'
+                                            (change)="onChangeImg($event)" [(ngModel)] = "oneMember.file">
+                                        <div *ngIf="a.file.invalid && (a.file.dirty || a.file.touched)"
+                                            class="alert alert-danger">
+                                            <div *ngIf="a.file.errors?.required">
+                                                กรุณากรอกเพิ่มรูปของคุณเพื่อแบ่งปันความน่ารักให้กับพวกเรา
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-9">
+                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.memberForm.value.img"
+                                        style="height:150px;" >
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary"
+                                        (click)="updatemember()">ยืนยัน</button>&nbsp;
+                                    <button type="reset" class="btn btn-danger" (click)="backtomember()">ยกเลิก</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+
+            </div>
+        </div>
+    </div>
+</div>

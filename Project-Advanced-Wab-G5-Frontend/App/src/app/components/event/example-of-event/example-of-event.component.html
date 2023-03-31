@@ -1,0 +1,33 @@
+<div class="row text-center"  >
+    <div class="col-md-2">
+        
+    </div>
+    <div class="card mb  " >
+        
+        <div class="card-body" >
+            <div class="row">
+                <div class="col-12">
+                    <img *ngIf="preview" class="img-thumbnail" [src]="this.FormMessage.value.img" style="height:150px;">
+                </div>
+                <div class="col-12 Header-text" >
+                    {{this.FormMessage.value.title}}
+                </div>
+                <div class="col-12 subtitle-text">
+                    {{this.FormMessage.value.body}}
+                </div>
+                <div class="col-12 subtitle-text" *ngIf = "showlink">
+                    <a [href]="this.FormMessage.value.urllink" target="_blank" >{{this.FormMessage.value.urllink}}</a>
+                </div>
+                <div class="col-12">
+                    
+                </div>
+                <div class="col-12 subtitle-text">
+                    <button type="button" class="btn btn-primary" (click)="addEvent()">Summit</button>&nbsp;
+                    <button type="reset" class="btn btn-outline-danger" (click)="resetForm()">Reset</button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

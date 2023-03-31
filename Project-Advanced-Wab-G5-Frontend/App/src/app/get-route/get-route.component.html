@@ -1,0 +1,109 @@
+<div class="container-fluid " style="background-color: #FFEFE2; padding-top: 60px">
+    
+    <div class="card" style="background-color: #FFEFE2; border-color: #FFEFE2;">
+      <div class="card-body">
+        <h4 class="card-title text-center">แก้ไขข้อมูลประชาสัมพันธ์</h4>
+        <div class="row">
+            <div class="col-md-2">
+                
+            </div>
+
+            <div class="col-md-8">
+                <form [formGroup]="EventForm">
+                    <div class="card" style="background-color: #FFEFE2; border-color: #FFEFE2;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Title :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName = 'title' [(ngModel)] = "theEvent.title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Body : 
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <textarea  rows="5" cols="50" class="form-control" formControlName = 'body' [(ngModel)] = "theEvent.body"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Url :
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName = 'urllink'  [(ngModel)]="theEvent.urllink">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Image:
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                      <input type="file" class="form-control-file " formControlName='file' (change)="onChangeImage($event)" accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <div class="row">
+                                <div class="col-md-2">
+                                    
+                                </div>
+                                <h4 class=" text-center">Example</h4>
+                            </div>
+                            <div class="row text-center"  >
+                                <div class="col-md-2">
+                                    
+                                </div>
+                                <div class="card mb  " >
+                                    
+                                    <div class="card-body" >
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.EventForm.value.img" style="height:150px;">
+                                            </div>
+                                            <div class="col-12 Header-text" >
+                                                {{this.EventForm.value.title}}
+                                            </div>
+                                            <div class="col-12 subtitle-text">
+                                                {{this.EventForm.value.body}}
+                                            </div>
+                                            <div class="col-12 subtitle-text" *ngIf = "showlink">
+                                                <a [href]="this.EventForm.value.urllink" target="_blank" >{{this.EventForm.value.urllink}}</a>
+                                            </div>
+                                            <div class="col-12">
+                                                
+                                            </div>
+                                            <div class="col-12 subtitle-text">
+                                                <button type="button" class="btn btn-primary" (click)="editEvent()">Summit</button>&nbsp;
+                                                <button type="reset" class="btn btn-outline-danger" (click)="resetForm()">Reset</button>
+                                                
+                                            </div>
+                                        </div>
+                            
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                
+            </div>
+        </div>
+      </div>
+    </div>
+
+</div>

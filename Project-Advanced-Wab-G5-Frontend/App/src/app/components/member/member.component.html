@@ -1,0 +1,52 @@
+<nav class="navbar navbar-light justify-content-between" style="background-color: #FFEFE2;">
+    <a class="navbar-brand"></a>
+    <div class="row">
+        <h2>รายชื่อสมาชิก ชมรมคอมพิวเตอร์</h2>
+    </div>
+    <form class="form-inline" style="padding-right: 30px;">
+        
+    </form>
+</nav>
+<div class="container-fluid" style="margin-top: 60px; min-height: 670px;">
+<div class="table-responsive-md" style="margin-top: 20px;">  
+    <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+            <tr>
+                <th>คำนำนาย</th>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+                <th>รหัสนักศึกษา</th>
+                <th>สาขา</th>
+                <th>Facebook</th>
+                <th>เบอร์โทรศัพท์</th>
+                <th>รูป</th>
+                <th>เพิ่มเติม</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of members; index as i">
+                <td scope="row">{{item.title}}</td>
+                <td>{{item.firstname}}</td>
+                <td>{{item.lastname}}</td>
+                <td>{{item.sid}}</td>
+                <td>{{item.major}}</td>
+                <td>{{item.facebook}}</td>
+                <td>{{item.tell}}</td>
+               
+                <td><img [src]="item.img" style="height:150px;"></td>
+                <td>
+                    <div class="col-md-12">
+                        <a class="btn btn-primary" type="submit" (click)="deletemember(item)">
+                        ลบสมาชิก   
+                        </a>
+                        <a class="btn btn-secondary"  style="margin-left: 15px;" type="submit" (click) = "moveToMember(item._id)">
+                        แก้ไขข้อมูล
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+</div>
